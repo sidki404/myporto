@@ -1,8 +1,8 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
+import { isLocale, type Locale } from '@/i18n';
 
-type Locale = 'id' | 'en';
 type Theme = 'light' | 'dark';
 type Preferences = { locale: Locale; theme: Theme; setLocale: (locale: Locale) => void; toggleTheme: () => void };
 
@@ -17,9 +17,20 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     return () => window.clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      const stored = localStorage.getItem('locale');
+      if (!isLocale(stored)) return;
+      setLocaleState(stored);
+      document.documentElement.lang = stored;
+    });
+    return () => window.clearTimeout(timer);
+  }, []);
+
   function setLocale(next: Locale) {
     setLocaleState(next);
     document.documentElement.lang = next;
+    localStorage.setItem('locale', next);
   }
 
   function toggleTheme() {

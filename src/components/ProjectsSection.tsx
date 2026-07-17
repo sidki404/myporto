@@ -14,13 +14,19 @@ export function ProjectsSection() {
       <DotGrid />
       <div className="relative mx-auto max-w-6xl">
         <p className="section-label">{id ? 'Portofolio' : 'Showcase'}</p>
-        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div className="max-w-3xl">
           <h2 className="section-title mb-0">{id ? 'Proyek pilihan' : 'Selected projects'}</h2>
-          <p className="max-w-md text-slate-600">{id ? 'Pilihan produk yang saya bangun dalam pengembangan web modern dan solusi server.' : 'A selection of products I built across modern web development and server-side solutions.'}</p>
+          <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">{id ? 'Beberapa proyek yang pernah saya kerjakan, mulai dari platform web hingga layanan API.' : 'A selection of projects I have worked on, from web platforms to API services.'}</p>
         </div>
         <div className="mt-10 grid gap-7 lg:grid-cols-2">
           {PROJECTS.map((project, index) => (
-            <article key={project.title} className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+            <article key={project.title} className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className="flex h-12 items-center gap-2 border-b border-slate-200 bg-slate-100 px-4">
+                <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
+                <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
+                <span className="h-3 w-3 rounded-full bg-[#28c840]" />
+                <span className="ml-2 truncate rounded-full border border-slate-200 bg-white px-3 py-1 text-[11px] font-semibold text-slate-500 shadow-sm">{new URL(project.url).hostname}</span>
+              </div>
               <div className="relative aspect-[16/10] overflow-hidden border-b border-slate-200 bg-slate-100">
                 <Image src={project.image} alt={`${id ? 'Tangkapan layar halaman' : 'Page screenshot'} ${project.title}`} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover object-top transition duration-500 group-hover:scale-[1.02]" />
               </div>

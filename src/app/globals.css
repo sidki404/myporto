@@ -76,11 +76,13 @@ body { margin: 0; background: #fff; color: #0f172a; font-family: var(--font-geis
 .dark body, .dark main { background: #080b14; color: #e2e8f0; color-scheme: dark; }
 .dark .bg-white { background-color: #0f172a; }
 .dark .bg-white\/90 { background-color: rgb(15 23 42 / .9); }
+.dark .bg-white\/95 { background-color: rgb(15 23 42 / .95); }
 .dark .bg-slate-50, .dark .bg-slate-100 { background-color: #172033; }
 .dark .bg-indigo-50, .dark .bg-indigo-50\/50, .dark .bg-\[\#f4f2ff\] { background-color: #101225; }
 .dark .text-slate-950, .dark .text-slate-800, .dark .text-slate-700 { color: #f1f5f9; }
 .dark .text-slate-600, .dark .text-slate-500 { color: #a8b3c5; }
 .dark .border-slate-200, .dark .border-slate-300, .dark .border-indigo-100, .dark .border-indigo-200 { border-color: #334155; }
+.dark .hover\:bg-slate-100:hover { background-color: #172033; }
 .dark .section-title { color: #f8fafc; }
 .dark .hero-grid { background-color: #090d1b; background-image: linear-gradient(rgb(109 93 230 / .2) 1px,transparent 1px),linear-gradient(90deg,rgb(109 93 230 / .2) 1px,transparent 1px); }
 .dark .contact-input { background: #172033; border-color: #334155; color: #f8fafc; }

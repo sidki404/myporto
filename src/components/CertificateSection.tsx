@@ -15,16 +15,13 @@ export function CertificateSection() {
         <div className="grid items-center gap-10 lg:grid-cols-[.75fr_1.25fr]">
           <div>
             <h2 id="certificate-title" className="section-title">{id ? 'Sertifikasi Laravel' : 'Laravel certification'}</h2>
-            <p className="max-w-lg text-lg leading-8 text-slate-600">
-              {id ? 'Sertifikat kelulusan kursus Laravel dari WPU Course yang diterbitkan untuk Sidki.' : 'Certificate of completion for the Laravel course from WPU Course, issued to Sidki.'}
-            </p>
             <a
               href={certificateUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-slate-950 px-5 py-3 font-bold text-white transition hover:bg-[#6D5DE6]"
+              className="mt-1 inline-flex items-center gap-2 rounded-full bg-slate-950 px-5 py-3 font-bold text-white transition hover:bg-[#6D5DE6]"
             >
-              {id ? 'Verifikasi sertifikat' : 'Verify certificate'} <ExternalLink size={17} />
+              {id ? 'Lihat sertifikat' : 'View certificate'} <ExternalLink size={17} />
             </a>
           </div>
 
