@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #fff; color: #0f172a; font-family: var(--font-geist-sans), sans-serif; }
+
+.hero-grid {
+  background-color: #faf9ff;
+  background-image:
+    linear-gradient(rgb(109 93 230 / 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(109 93 230 / 0.22) 1px, transparent 1px);
+  background-size: 36px 36px;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.testimonial-loop {
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
 }
+.testimonial-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation-name: testimonial-loop;
+  animation-duration: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+.testimonial-group { display: flex; gap: 1.25rem; padding-right: 1.25rem; }
+.testimonial-loop:hover .testimonial-track,
+.testimonial-loop:focus-within .testimonial-track {
+  animation-play-state: paused;
+}
+
+@keyframes testimonial-loop {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.section-label { margin-bottom: .75rem; font-family: var(--font-geist-mono), monospace; font-size: .75rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: #6d5de6; }
+.section-title { margin-bottom: 2rem; font-size: clamp(2rem, 5vw, 3.75rem); line-height: 1; font-weight: 900; letter-spacing: -.045em; color: #020617; }
+
+.contact-input {
+  width: 100%;
+  border: 1px solid #c7d2fe;
+  border-radius: .75rem;
+  background: #f8fafc;
+  color: #0f172a;
+  padding: .75rem 1rem;
+  font-size: .875rem;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s, background-color .2s;
+}
+.contact-input::placeholder { color: #94a3b8; }
+.contact-input:focus {
+  border-color: #6d5de6;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgb(109 93 230 / .18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .testimonial-track {
+    animation-name: testimonial-loop !important;
+    animation-duration: 24s !important;
+    animation-timing-function: linear !important;
+    animation-iteration-count: infinite !important;
+  }
+  .testimonial-loop { overflow: hidden; mask-image: none; }
+}
+
+.dark body, .dark main { background: #080b14; color: #e2e8f0; color-scheme: dark; }
+.dark .bg-white { background-color: #0f172a; }
+.dark .bg-white\/90 { background-color: rgb(15 23 42 / .9); }
+.dark .bg-slate-50, .dark .bg-slate-100 { background-color: #172033; }
+.dark .bg-indigo-50, .dark .bg-indigo-50\/50, .dark .bg-\[\#f4f2ff\] { background-color: #101225; }
+.dark .text-slate-950, .dark .text-slate-800, .dark .text-slate-700 { color: #f1f5f9; }
+.dark .text-slate-600, .dark .text-slate-500 { color: #a8b3c5; }
+.dark .border-slate-200, .dark .border-slate-300, .dark .border-indigo-100, .dark .border-indigo-200 { border-color: #334155; }
+.dark .section-title { color: #f8fafc; }
+.dark .hero-grid { background-color: #090d1b; background-image: linear-gradient(rgb(109 93 230 / .2) 1px,transparent 1px),linear-gradient(90deg,rgb(109 93 230 / .2) 1px,transparent 1px); }
+.dark .contact-input { background: #172033; border-color: #334155; color: #f8fafc; }
+.dark .contact-input:focus { background: #0f172a; }
+.dark .secondary-button { background: #172033; border-color: #475569; color: #f8fafc; }
