@@ -18,12 +18,12 @@ export function AboutSection() {
         <div className="grid gap-14 lg:grid-cols-[1.1fr_.9fr]">
           <div>
             <p className="section-label">{id ? 'Tentang' : 'About'}</p>
-            <h2 className="section-title">{id ? 'Sekilas tentang saya' : 'A bit about me'}</h2>
-            <p className="mb-7 text-xl font-semibold leading-8 text-slate-800">{id ? 'Developer yang bersemangat menciptakan solusi digital berdampak.' : 'A passionate developer with a focus on creating impactful digital solutions.'}</p>
+            <h2 className="section-title">{id ? 'Saya fokus ke web app yang bisa dipakai' : 'I focus on web apps people can actually use'}</h2>
+            <p className="mb-7 text-xl font-semibold leading-8 text-slate-800">{id ? 'Saya membangun aplikasi Laravel, API backend, dan sistem server dengan alur yang jelas.' : 'I build Laravel applications, backend APIs, and server systems with clear user flows.'}</p>
             <div className="space-y-5 leading-7 text-slate-600">
-              <p>{id ? 'Saya berasal dari Jawa Barat, Indonesia. Saya berpengalaman dalam pengembangan full stack, baik frontend maupun backend.' : 'I am from West Java, Indonesia. I have experience in full stack development, focusing on both frontend and backend systems.'}</p>
-              <p>{id ? 'Saya menggunakan HTML, CSS, dan JavaScript untuk membangun antarmuka responsif, serta mengembangkan logika server dan integrasi basis data.' : 'I work with HTML, CSS, and JavaScript to build responsive user interfaces, and I also explore backend development, server-side logic, and database integration.'}</p>
-              <p>{id ? 'Saya berpengalaman mengembangkan dan mengelola server SA-MP, termasuk scripting, desain sistem, dan optimasi. Saya terus belajar dan terbuka untuk kolaborasi maupun proyek lepas.' : 'I have experience in developing and managing SA-MP servers, including scripting, system design, and server optimization. I am continuously improving my skills and open to collaboration and freelance opportunities.'}</p>
+              <p>{id ? 'Saya berasal dari Jawa Barat, Indonesia. Pekerjaan saya biasanya ada di area dashboard, integrasi API, autentikasi, pengelolaan data, dan fitur operasional.' : 'I am from West Java, Indonesia. My work usually covers dashboards, API integrations, authentication, data management, and operational features.'}</p>
+              <p>{id ? 'Di project seperti MotionGen dan MotionAPI, saya mengerjakan alur produk dari halaman publik sampai backend yang menangani request, status, dan akses pengguna.' : 'In projects like MotionGen and MotionAPI, I work on product flows from public pages to backends that handle requests, statuses, and user access.'}</p>
+              <p>{id ? 'Saya juga punya pengalaman scripting dan pengelolaan server SA-MP, jadi saya cukup terbiasa memikirkan performa, konfigurasi, dan behavior sistem saat dipakai banyak user.' : 'I also have experience with SA-MP scripting and server management, so I am used to thinking about performance, configuration, and system behavior under real usage.'}</p>
             </div>
           </div>
           <div className="grid grid-cols-3 gap-3 self-start">
