@@ -26,4 +26,11 @@ export const PROJECTS = [
     url: 'https://api.motiongen.my.id/',
     stack: ['Golang', 'REST API', 'MySQL'],
   },
+  {
+    title: 'Cashid',
+    type: 'Payment Gateway',
+    image: '/projects/cashid.png',
+    url: 'https://cashid.my.id/',
+    stack: ['Next.js', 'REST API', 'Android', 'Webhook'],
+  },
 ];

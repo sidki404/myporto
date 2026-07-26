@@ -31,12 +31,13 @@ export const en = {
   projects: {
     label: 'Projects',
     title: 'Not just screenshots',
-    intro: 'These two projects are live and being used. Click and try them yourself, the most honest way to judge my work.',
+    intro: 'These projects are live and being used. Click and try them yourself, the most honest way to judge my work.',
     screenshot: 'Page screenshot',
     open: 'Open project',
     descriptions: [
       'A place to generate images and videos with AI. It has a public gallery, service plans, a user studio, and an affiliate program. Built with Laravel.',
       'The REST API behind the image and video generation, written in Go. It handles Bearer token auth, job status, API keys, and usage records.',
+      'A notification-based QRIS payment gateway. Merchants create invoices through the API, an Android app reads payment notifications, and the server matches them and fires webhooks.',
     ],
   },
   testimonials: {

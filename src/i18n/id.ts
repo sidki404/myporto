@@ -31,12 +31,13 @@ export const id = {
   projects: {
     label: 'Proyek',
     title: 'Bukan sekadar screenshot',
-    intro: 'Dua proyek ini masih hidup dan dipakai orang. Klik dan coba sendiri, itu cara paling jujur menilai pekerjaan saya.',
+    intro: 'Semua proyek ini masih hidup dan dipakai orang. Klik dan coba sendiri, itu cara paling jujur menilai pekerjaan saya.',
     screenshot: 'Tangkapan layar halaman',
     open: 'Buka proyek',
     descriptions: [
       'Tempat membuat gambar dan video pakai AI. Ada galeri publik, pilihan paket, studio untuk pengguna, dan program afiliasi. Dibangun dengan Laravel.',
       'REST API di belakang proses pembuatan gambar dan videonya, ditulis dengan Go. Mengurus autentikasi Bearer token, status job, API key, sampai catatan pemakaian.',
+      'Payment gateway QRIS berbasis notifikasi. Merchant membuat invoice lewat API, aplikasi Android membaca notifikasi pembayaran, lalu server mencocokkannya dan mengirim webhook.',
     ],
   },
   testimonials: {
