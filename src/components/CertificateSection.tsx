@@ -9,7 +9,7 @@ export function CertificateSection() {
   const { locale } = usePreferences();
   const id = locale === 'id';
   return (
-    <section className="border-t border-indigo-100 bg-indigo-50/50 px-5 py-24 sm:px-8" aria-labelledby="certificate-title">
+    <section className="border-t border-indigo-100 bg-indigo-50/50 px-5 py-24 [content-visibility:auto] [contain-intrinsic-size:auto_700px] sm:px-8" aria-labelledby="certificate-title">
       <div className="mx-auto max-w-6xl">
         <p className="section-label">{id ? 'Sertifikasi' : 'Certification'}</p>
         <div className="grid items-center gap-10 lg:grid-cols-[.75fr_1.25fr]">

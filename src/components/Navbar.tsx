@@ -10,7 +10,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const t = dictionary[locale].nav;
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/90 shadow-sm backdrop-blur">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/95 shadow-sm">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-4 sm:h-20 sm:px-8" aria-label={t.label}>
         <a href="#home" onClick={() => setOpen(false)} className="text-xl font-black tracking-tight text-slate-950">Sidki<span className="text-[#6D5DE6]">.</span></a>
         <div className="flex items-center gap-1 sm:gap-5">

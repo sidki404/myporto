@@ -68,6 +68,8 @@ export default function Lanyard({
   lanyardWidth = 1
 }: LanyardProps) {
   const [isMobile, setIsMobile] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleResize = (): void => setIsMobile(window.innerWidth < 768);
@@ -76,12 +78,24 @@ export default function Lanyard({
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsVisible(entry.isIntersecting);
+    });
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="relative z-0 w-full h-screen flex justify-center items-center transform scale-100 origin-center">
+    <div ref={containerRef} className="relative z-0 w-full h-screen flex justify-center items-center transform scale-100 origin-center">
       <Canvas
+        frameloop={isVisible ? 'always' : 'never'}
         camera={{ position, fov }}
-        dpr={[1, isMobile ? 1.5 : 2]}
-        gl={{ alpha: transparent }}
+        dpr={[1, 1.5]}
+        gl={{ alpha: transparent, antialias: false, powerPreference: 'high-performance' }}
         onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)}
       >
         <ambientLight intensity={Math.PI} />
@@ -178,6 +192,7 @@ function Band({
   const ang = new THREE.Vector3();
   const rot = new THREE.Vector3();
   const dir = new THREE.Vector3();
+  const bandUpdateElapsed = useRef(0);
 
   const segmentProps: RigidBodyProps = {
     type: 'dynamic',
@@ -291,19 +306,35 @@ function Band({
         z: vec.z - dragged.z
       });
     }
-    if (fixed.current) {
+    if (!fixed.current || !j1.current || !j2.current || !j3.current || !card.current || !band.current) return;
+
+    const translations = [
+      fixed.current.translation(),
+      j1.current.translation(),
+      j2.current.translation(),
+      j3.current.translation(),
+    ];
+    if (translations.some(({ x, y, z }) => !Number.isFinite(x) || !Number.isFinite(y) || !Number.isFinite(z))) return;
+
+    bandUpdateElapsed.current += delta;
+    if (bandUpdateElapsed.current >= 1 / 30) {
+      bandUpdateElapsed.current %= 1 / 30;
       [j1, j2].forEach(ref => {
         const lerped = getLerped(ref.current);
         const clampedDistance = Math.max(0.1, Math.min(1, lerped.distanceTo(ref.current.translation())));
-        lerped.lerp(ref.current.translation(), delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed)));
+        const lerpFactor = Math.min(1, delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed)));
+        lerped.lerp(ref.current.translation(), lerpFactor);
       });
-      curve.points[0].copy(j3.current.translation());
+      curve.points[0].copy(translations[3]);
       curve.points[1].copy(getLerped(j2.current));
       curve.points[2].copy(getLerped(j1.current));
-      curve.points[3].copy(fixed.current.translation());
-      band.current.geometry.setPoints(curve.getPoints(isMobile ? 16 : 32));
-      ang.copy(card.current.angvel());
-      rot.copy(card.current.rotation());
+      curve.points[3].copy(translations[0]);
+      band.current.geometry.setPoints(curve.getPoints(isMobile ? 12 : 20));
+    }
+
+    ang.copy(card.current.angvel());
+    rot.copy(card.current.rotation());
+    if (Number.isFinite(ang.x) && Number.isFinite(ang.y) && Number.isFinite(ang.z) && Number.isFinite(rot.y)) {
       card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z }, true);
     }
   });

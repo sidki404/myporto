@@ -26,7 +26,7 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="border-t border-indigo-100 bg-indigo-50 px-5 py-24 text-slate-950 sm:px-8">
+    <section id="contact" className="scroll-mt-20 border-t border-indigo-100 bg-indigo-50 px-5 py-24 text-slate-950 [content-visibility:auto] [contain-intrinsic-size:auto_800px] sm:px-8">
       <div className="mx-auto max-w-6xl">
         <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-[#6D5DE6]">{id ? 'Kontak' : 'Contact'}</p>
         <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">{id ? 'Kirim brief singkat' : 'Send a short brief'}</h2>

@@ -13,7 +13,7 @@ export function AboutSection() {
   const { locale } = usePreferences();
   const id = locale === 'id';
   return (
-    <section id="about" className="border-y border-slate-200 bg-white px-5 py-24 sm:px-8">
+    <section id="about" className="scroll-mt-20 border-y border-slate-200 bg-white px-5 py-24 [content-visibility:auto] [contain-intrinsic-size:auto_900px] sm:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-14 lg:grid-cols-[1.1fr_.9fr]">
           <div>

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -8,14 +10,6 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: #fff; color: #0f172a; font-family: var(--font-geist-sans), sans-serif; }
-
-.hero-grid {
-  background-color: #faf9ff;
-  background-image:
-    linear-gradient(rgb(109 93 230 / 0.22) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(109 93 230 / 0.22) 1px, transparent 1px);
-  background-size: 36px 36px;
-}
 
 .testimonial-loop {
   mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
@@ -84,7 +78,6 @@ body { margin: 0; background: #fff; color: #0f172a; font-family: var(--font-geis
 .dark .border-slate-200, .dark .border-slate-300, .dark .border-indigo-100, .dark .border-indigo-200 { border-color: #334155; }
 .dark .hover\:bg-slate-100:hover { background-color: #172033; }
 .dark .section-title { color: #f8fafc; }
-.dark .hero-grid { background-color: #090d1b; background-image: linear-gradient(rgb(109 93 230 / .2) 1px,transparent 1px),linear-gradient(90deg,rgb(109 93 230 / .2) 1px,transparent 1px); }
 .dark .contact-input { background: #172033; border-color: #334155; color: #f8fafc; }
 .dark .contact-input:focus { background: #0f172a; }
 .dark .secondary-button { background: #172033; border-color: #475569; color: #f8fafc; }

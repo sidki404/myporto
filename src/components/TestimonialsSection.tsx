@@ -121,7 +121,7 @@ export function TestimonialsSection() {
   const id = locale === 'id';
 
   return (
-    <section className="overflow-hidden bg-white py-24" aria-labelledby="testimonials-title">
+    <section className="overflow-hidden bg-white py-24 [content-visibility:auto] [contain-intrinsic-size:auto_600px]" aria-labelledby="testimonials-title">
       <div className="mx-auto max-w-6xl px-5 text-center sm:px-8">
         <p className="section-label">{id ? 'Testimoni Klien' : 'Client Testimonials'}</p>
         <h2 id="testimonials-title" className="section-title">{id ? 'Apa Kata Mereka?' : 'What Do They Say?'}</h2>
