@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { usePreferences } from './Preferences';
 import { ExternalLink } from 'lucide-react';
 import { PROJECTS } from '@/data/portfolio';
-import { DotGrid } from './DotGrid';
 
 export function ProjectsSection() {
   const { locale } = usePreferences();
@@ -11,7 +10,6 @@ export function ProjectsSection() {
   const englishDescriptions = ['AI-powered image and video creation platform with a public showcase, service plans, protected studio, and affiliate program.', 'Unified API for AI image and video generation workflows, with Bearer authentication, generation status, and API key and usage management.'];
   return (
     <section id="projects" className="relative overflow-hidden border-y border-indigo-100 bg-[#f4f2ff] px-5 py-24 sm:px-8">
-      <DotGrid />
       <div className="relative mx-auto max-w-6xl">
         <p className="section-label">{id ? 'Portofolio' : 'Showcase'}</p>
         <div className="max-w-3xl">
