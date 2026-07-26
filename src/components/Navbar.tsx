@@ -15,7 +15,7 @@ export function Navbar() {
         <a href="#home" onClick={() => setOpen(false)} className="text-xl font-black tracking-tight text-slate-950">Sidki<span className="text-[#6D5DE6]">.</span></a>
         <div className="flex items-center gap-1 sm:gap-5">
           {t.links.map(([label, href]) => <a key={href} href={href} className="hidden text-sm font-semibold text-slate-600 transition hover:text-[#6D5DE6] md:block">{label}</a>)}
-          <div className="flex rounded-full border border-slate-300 bg-slate-50 p-0.5 text-xs font-bold" aria-label="Language">
+          <div className="flex rounded-full border border-slate-300 bg-slate-50 p-0.5 text-xs font-bold" aria-label={t.language}>
             {(['id', 'en'] as const).map((item) => <button key={item} onClick={() => setLocale(item)} aria-pressed={locale === item} className={`rounded-full px-2 py-1.5 uppercase ${locale === item ? 'bg-[#6D5DE6] text-white' : 'text-slate-600'}`}>{item}</button>)}
           </div>
           <button onClick={toggleTheme} className="grid h-8 w-8 place-items-center rounded-full border border-slate-300 bg-slate-50 text-slate-700" aria-label={theme === 'dark' ? t.light : t.dark}>{theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}</button>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { AgentationDevTools } from '@/components/AgentationDevTools';
+import { SmoothScroll } from '@/components/SmoothScroll';
 import './globals.css';
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
@@ -15,9 +16,10 @@ const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t===
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="id" className={`${geistSans.variable} ${geistMono.variable} scroll-smooth antialiased`} suppressHydrationWarning>
+    <html lang="id" className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning>
       <head><script dangerouslySetInnerHTML={{ __html: themeScript }} /></head>
       <body suppressHydrationWarning>
+        <SmoothScroll />
         {children}
         <AgentationDevTools />
       </body>
