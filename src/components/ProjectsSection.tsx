@@ -21,28 +21,32 @@ export function ProjectsSection() {
           <h2 className="section-title mb-0">{t.title}</h2>
           <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">{t.intro}</p>
         </ScrollReveal>
-        <div className="mt-10 grid gap-7 lg:grid-cols-2">
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.map((project, index) => (
-            <ScrollReveal key={project.title} delay={index * 120}>
-            <article className="group h-full overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div className="flex h-12 items-center gap-2 border-b border-slate-200 bg-slate-100 px-4">
-                <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-                <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
-                <span className="h-3 w-3 rounded-full bg-[#28c840]" />
-                <span className="ml-2 truncate rounded-full border border-slate-200 bg-white px-3 py-1 text-[11px] font-semibold text-slate-500 shadow-sm">{new URL(project.url).hostname}</span>
+            <ScrollReveal key={project.title} delay={index * 100}>
+            <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className="flex h-10 items-center gap-1.5 border-b border-slate-200 bg-slate-100 px-3.5">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+                <span className="ml-2 truncate rounded-full border border-slate-200 bg-white px-2.5 py-0.5 text-[10px] font-semibold text-slate-500 shadow-sm">{new URL(project.url).hostname}</span>
               </div>
               <div className="relative aspect-[16/10] overflow-hidden border-b border-slate-200 bg-slate-100">
-                <Image src={project.image} alt={`${t.screenshot} ${project.title}`} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover object-top transition duration-500 group-hover:scale-[1.02]" />
+                <Image src={project.image} alt={`${t.screenshot} ${project.title}`} fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover object-top transition duration-500 group-hover:scale-[1.02]" />
               </div>
-              <div className="p-6 sm:p-8">
-                <p className="mb-2 text-xs font-black uppercase tracking-[0.16em] text-indigo-700">{project.type}</p>
-                <h3 className="text-2xl font-black text-slate-950">{project.title}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{t.descriptions[index]}</p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {project.stack.map((item) => <span key={item} className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600">{item}</span>)}
+              <div className="flex flex-1 flex-col p-5">
+                <p className="mb-1.5 text-[11px] font-black uppercase tracking-[0.16em] text-indigo-700">{project.type}</p>
+                <h3 className="text-xl font-black text-slate-950">{project.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{t.descriptions[index]}</p>
+                <div className="mt-3 flex-1 border-l-2 border-indigo-300 pl-3">
+                  <p className="text-[10px] font-black uppercase tracking-[0.16em] text-indigo-700">{t.goalLabel}</p>
+                  <p className="mt-1 text-[13px] leading-5 text-slate-600">{t.goals[index]}</p>
                 </div>
-                <a href={project.url} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-2 font-bold text-slate-950 transition hover:text-[#6D5DE6]">
-                  {t.open} <ExternalLink size={17} />
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {project.stack.map((item) => <span key={item} className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-bold text-slate-600">{item}</span>)}
+                </div>
+                <a href={project.url} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-slate-950 transition hover:text-[#6D5DE6]">
+                  {t.open} <ExternalLink size={15} />
                 </a>
               </div>
             </article>

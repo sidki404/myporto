@@ -34,6 +34,12 @@ export const id = {
     intro: 'Semua proyek ini masih hidup dan dipakai orang. Klik dan coba sendiri, itu cara paling jujur menilai pekerjaan saya.',
     screenshot: 'Tangkapan layar halaman',
     open: 'Buka proyek',
+    goalLabel: 'Tujuan',
+    goals: [
+      'Membuat proses bikin konten AI terasa mudah untuk orang yang bukan teknisi.',
+      'Menyediakan satu pintu API agar developer lain bisa memakai fitur generasinya.',
+      'Membantu merchant kecil menerima pembayaran QRIS tanpa biaya gateway besar.',
+    ],
     descriptions: [
       'Tempat membuat gambar dan video pakai AI. Ada galeri publik, pilihan paket, studio untuk pengguna, dan program afiliasi. Dibangun dengan Laravel.',
       'REST API di belakang proses pembuatan gambar dan videonya, ditulis dengan Go. Mengurus autentikasi Bearer token, status job, API key, sampai catatan pemakaian.',

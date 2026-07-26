@@ -34,6 +34,12 @@ export const en = {
     intro: 'These projects are live and being used. Click and try them yourself, the most honest way to judge my work.',
     screenshot: 'Page screenshot',
     open: 'Open project',
+    goalLabel: 'Goal',
+    goals: [
+      'Make AI content creation feel easy for people who are not technical.',
+      'Provide a single API gateway so other developers can use the generation features.',
+      'Help small merchants accept QRIS payments without big gateway fees.',
+    ],
     descriptions: [
       'A place to generate images and videos with AI. It has a public gallery, service plans, a user studio, and an affiliate program. Built with Laravel.',
       'The REST API behind the image and video generation, written in Go. It handles Bearer token auth, job status, API keys, and usage records.',
