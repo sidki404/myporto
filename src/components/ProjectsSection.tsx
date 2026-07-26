@@ -3,20 +3,21 @@ import Image from 'next/image';
 import { usePreferences } from './Preferences';
 import { ExternalLink } from 'lucide-react';
 import { PROJECTS } from '@/data/portfolio';
+import { ScrollReveal } from './ScrollReveal';
 
 export function ProjectsSection() {
   const { locale } = usePreferences();
   const id = locale === 'id';
-  const englishDescriptions = ['AI-powered image and video creation platform with a public showcase, service plans, protected studio, and affiliate program.', 'Unified API for AI image and video generation workflows, with Bearer authentication, generation status, and API key and usage management.'];
+  const englishDescriptions = ['A Laravel application for creating AI images and videos. It includes a public gallery, service plans, a private user studio, and an affiliate program.', 'A Go REST API that handles AI image and video generation, Bearer tokens, job status, API keys, and usage records.'];
   return (
     <section id="projects" className="relative scroll-mt-20 overflow-hidden border-y border-indigo-100 bg-[#f4f2ff] px-5 py-24 [content-visibility:auto] [contain-intrinsic-size:auto_900px] sm:px-8">
       <div className="relative mx-auto max-w-6xl">
-        <p className="section-label">{id ? 'Portofolio' : 'Showcase'}</p>
-        <div className="max-w-3xl">
-          <h2 className="section-title mb-0">{id ? 'Proyek pilihan' : 'Selected projects'}</h2>
-          <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">{id ? 'Beberapa proyek yang pernah saya kerjakan, mulai dari platform web hingga layanan API.' : 'A selection of projects I have worked on, from web platforms to API services.'}</p>
-        </div>
-        <div className="mt-10 grid gap-7 lg:grid-cols-2">
+        <ScrollReveal className="max-w-3xl">
+          <p className="section-label">{id ? 'Portofolio' : 'Showcase'}</p>
+          <h2 className="section-title mb-0">{id ? 'Beberapa hasil kerja saya' : 'A few things I have built'}</h2>
+          <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">{id ? 'Dua proyek ini mencakup aplikasi web Laravel dan REST API berbasis Go.' : 'These two projects cover a Laravel web application and a Go REST API.'}</p>
+        </ScrollReveal>
+        <ScrollReveal className="mt-10 grid gap-7 lg:grid-cols-2" delay={100}>
           {PROJECTS.map((project, index) => (
             <article key={project.title} className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
               <div className="flex h-12 items-center gap-2 border-b border-slate-200 bg-slate-100 px-4">
@@ -41,7 +42,7 @@ export function ProjectsSection() {
               </div>
             </article>
           ))}
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

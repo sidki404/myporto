@@ -32,7 +32,7 @@ declare module '@react-three/fiber' {
   }
 }
 
-// 1x1 transparent pixel — lets useTexture be called unconditionally when a
+// A 1x1 transparent pixel lets useTexture run unconditionally when a
 // front/back image isn't supplied.
 const BLANK_PIXEL =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==';
@@ -192,7 +192,6 @@ function Band({
   const ang = new THREE.Vector3();
   const rot = new THREE.Vector3();
   const dir = new THREE.Vector3();
-  const bandUpdateElapsed = useRef(0);
 
   const segmentProps: RigidBodyProps = {
     type: 'dynamic',
@@ -316,21 +315,17 @@ function Band({
     ];
     if (translations.some(({ x, y, z }) => !Number.isFinite(x) || !Number.isFinite(y) || !Number.isFinite(z))) return;
 
-    bandUpdateElapsed.current += delta;
-    if (bandUpdateElapsed.current >= 1 / 30) {
-      bandUpdateElapsed.current %= 1 / 30;
-      [j1, j2].forEach(ref => {
-        const lerped = getLerped(ref.current);
-        const clampedDistance = Math.max(0.1, Math.min(1, lerped.distanceTo(ref.current.translation())));
-        const lerpFactor = Math.min(1, delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed)));
-        lerped.lerp(ref.current.translation(), lerpFactor);
-      });
-      curve.points[0].copy(translations[3]);
-      curve.points[1].copy(getLerped(j2.current));
-      curve.points[2].copy(getLerped(j1.current));
-      curve.points[3].copy(translations[0]);
-      band.current.geometry.setPoints(curve.getPoints(isMobile ? 12 : 20));
-    }
+    [j1, j2].forEach(ref => {
+      const lerped = getLerped(ref.current);
+      const clampedDistance = Math.max(0.1, Math.min(1, lerped.distanceTo(ref.current.translation())));
+      const lerpFactor = Math.min(1, delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed)));
+      lerped.lerp(ref.current.translation(), lerpFactor);
+    });
+    curve.points[0].copy(translations[3]);
+    curve.points[1].copy(getLerped(j2.current));
+    curve.points[2].copy(getLerped(j1.current));
+    curve.points[3].copy(translations[0]);
+    band.current.geometry.setPoints(curve.getPoints(isMobile ? 12 : 20));
 
     ang.copy(card.current.angvel());
     rot.copy(card.current.rotation());

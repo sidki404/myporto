@@ -10,15 +10,15 @@ export const id = {
   hero: {
     hello: 'Halo, saya',
     roles: ['Full Stack Developer', 'Spesialis Laravel', 'Web Developer', 'App Developer', 'Golang Developer', 'SA-MP Scripter'],
-    intro: 'Membangun pengalaman digital dari Jawa Barat, Indonesia. Berfokus pada pengembangan web modern dan solusi server.',
-    projects: 'Lihat Proyek',
-    contact: 'Hubungi Saya',
+    intro: 'Saya membuat aplikasi web, API, dan sistem backend dari Jawa Barat, Indonesia.',
+    projects: 'Lihat proyek',
+    contact: 'Ajak diskusi',
   },
   footer: {
     nav: 'Navigasi kaki halaman',
   },
   whatsapp: {
-    text: 'Halo Sidki, saya tertarik untuk berdiskusi tentang proyek.',
+    text: 'Halo Sidki, saya punya proyek yang ingin didiskusikan.',
     label: 'Hubungi Sidki melalui WhatsApp',
   },
 } as const;

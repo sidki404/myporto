@@ -2,6 +2,7 @@
 
 import { Star } from 'lucide-react';
 import { usePreferences } from './Preferences';
+import { ScrollReveal } from './ScrollReveal';
 
 const testimonials = [
   {
@@ -122,14 +123,14 @@ export function TestimonialsSection() {
 
   return (
     <section className="overflow-hidden bg-white py-24 [content-visibility:auto] [contain-intrinsic-size:auto_600px]" aria-labelledby="testimonials-title">
-      <div className="mx-auto max-w-6xl px-5 text-center sm:px-8">
+      <ScrollReveal className="mx-auto max-w-6xl px-5 text-center sm:px-8">
         <p className="section-label">{id ? 'Testimoni Klien' : 'Client Testimonials'}</p>
-        <h2 id="testimonials-title" className="section-title">{id ? 'Apa Kata Mereka?' : 'What Do They Say?'}</h2>
-        <p className="mx-auto max-w-2xl text-lg text-slate-600">{id ? 'Kepercayaan klien adalah prioritas utama saya dalam setiap proyek.' : 'Client trust is my highest priority in every project.'}</p>
-      </div>
-      <div className="testimonial-loop mt-12 overflow-hidden">
+        <h2 id="testimonials-title" className="section-title">{id ? 'Cerita dari orang yang pernah bekerja dengan saya' : 'Notes from people I have worked with'}</h2>
+        <p className="mx-auto max-w-2xl text-lg text-slate-600">{id ? 'Sedikit cerita tentang proses kerja dan hasil yang mereka terima.' : 'A few notes about the process and what they received.'}</p>
+      </ScrollReveal>
+      <ScrollReveal className="testimonial-loop mt-12 overflow-hidden" delay={100}>
         <div className="testimonial-track"><Cards id={id} /><Cards id={id} hidden /></div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

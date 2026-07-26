@@ -14,7 +14,7 @@ export const PROJECTS = [
   {
     title: 'MotionGen',
     type: 'Laravel Project',
-    description: 'Platform pembuatan gambar dan video berbasis AI dengan showcase publik, paket layanan, studio terproteksi, dan program afiliasi.',
+    description: 'Aplikasi Laravel untuk membuat gambar dan video dengan AI. Di dalamnya ada galeri publik, pilihan paket, studio khusus pengguna, dan program afiliasi.',
     image: '/projects/motiongen.png',
     url: 'https://motiongen.my.id/',
     stack: ['Laravel', 'Livewire', 'MySQL'],
@@ -22,7 +22,7 @@ export const PROJECTS = [
   {
     title: 'MotionAPI',
     type: 'Golang Project',
-    description: 'API terpadu untuk workflow generasi gambar dan video AI, dengan autentikasi Bearer token, status generasi, serta pengelolaan API key dan penggunaan.',
+    description: 'REST API berbasis Go untuk proses pembuatan gambar dan video AI. API ini menangani Bearer token, status proses, API key, dan pencatatan penggunaan.',
     image: '/projects/motionapi.png',
     url: 'https://api.motiongen.my.id/',
     stack: ['Golang', 'REST API', 'MySQL'],

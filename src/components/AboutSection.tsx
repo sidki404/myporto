@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { usePreferences } from './Preferences';
 import { SKILLS } from '@/data/portfolio';
+import { ScrollReveal } from './ScrollReveal';
 
 const stats = [
   { value: '3+', label: 'Years Exp', id: 'Tahun Pengalaman' },
@@ -16,29 +17,29 @@ export function AboutSection() {
     <section id="about" className="scroll-mt-20 border-y border-slate-200 bg-white px-5 py-24 [content-visibility:auto] [contain-intrinsic-size:auto_900px] sm:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-14 lg:grid-cols-[1.1fr_.9fr]">
-          <div>
+          <ScrollReveal>
             <p className="section-label">{id ? 'Tentang' : 'About'}</p>
-            <h2 className="section-title">{id ? 'Saya fokus ke web app yang bisa dipakai' : 'I focus on web apps people can actually use'}</h2>
-            <p className="mb-7 text-xl font-semibold leading-8 text-slate-800">{id ? 'Saya membangun aplikasi Laravel, API backend, dan sistem server dengan alur yang jelas.' : 'I build Laravel applications, backend APIs, and server systems with clear user flows.'}</p>
+            <h2 className="section-title">{id ? 'Saya mengerjakan aplikasi web, API, dan server' : 'I work on web applications, APIs, and servers'}</h2>
+            <p className="mb-7 text-xl font-semibold leading-8 text-slate-800">{id ? 'Laravel, Go, dan MySQL adalah teknologi yang paling sering saya pakai.' : 'Laravel, Go, and MySQL are the tools I use most often.'}</p>
             <div className="space-y-5 leading-7 text-slate-600">
-              <p>{id ? 'Saya berasal dari Jawa Barat, Indonesia. Pekerjaan saya biasanya ada di area dashboard, integrasi API, autentikasi, pengelolaan data, dan fitur operasional.' : 'I am from West Java, Indonesia. My work usually covers dashboards, API integrations, authentication, data management, and operational features.'}</p>
-              <p>{id ? 'Di project seperti MotionGen dan MotionAPI, saya mengerjakan alur produk dari halaman publik sampai backend yang menangani request, status, dan akses pengguna.' : 'In projects like MotionGen and MotionAPI, I work on product flows from public pages to backends that handle requests, statuses, and user access.'}</p>
-              <p>{id ? 'Saya juga punya pengalaman scripting dan pengelolaan server SA-MP, jadi saya cukup terbiasa memikirkan performa, konfigurasi, dan behavior sistem saat dipakai banyak user.' : 'I also have experience with SA-MP scripting and server management, so I am used to thinking about performance, configuration, and system behavior under real usage.'}</p>
+              <p>{id ? 'Saya tinggal di Jawa Barat. Biasanya saya mengerjakan dashboard, integrasi API, autentikasi, pengelolaan data, dan fitur untuk kebutuhan operasional.' : 'I live in West Java. I usually work on dashboards, API integrations, authentication, data management, and internal tools.'}</p>
+              <p>{id ? 'Di MotionGen dan MotionAPI, saya menangani halaman publik sekaligus backend yang memproses request, status, dan akses pengguna.' : 'For MotionGen and MotionAPI, I handle both the public pages and the backend that processes requests, statuses, and user access.'}</p>
+              <p>{id ? 'Saya juga pernah membuat script dan mengelola server SA-MP. Pengalaman itu membuat saya terbiasa mengurus performa dan konfigurasi saat server ramai.' : 'I have also written scripts and managed SA-MP servers. That experience taught me to pay attention to performance and configuration when a server gets busy.'}</p>
             </div>
-          </div>
-          <div className="grid grid-cols-3 gap-3 self-start">
+          </ScrollReveal>
+          <ScrollReveal className="grid grid-cols-3 gap-3 self-start" delay={100}>
             {stats.map((stat) => (
               <div key={stat.label} className="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-center shadow-sm">
                 <strong className="block text-3xl font-black text-[#6D5DE6] sm:text-4xl">{stat.value}</strong>
                 <span className="mt-1 block text-xs font-bold uppercase tracking-wide text-slate-500 sm:text-sm">{id ? stat.id : stat.label}</span>
               </div>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
 
-        <div className="mt-20">
+        <ScrollReveal className="mt-20" delay={80}>
           <p className="section-label">{id ? 'Keahlian' : 'Expertise'}</p>
-          <h2 className="section-title">{id ? 'Keahlian & Teknologi' : 'Skills & Technologies'}</h2>
+          <h2 className="section-title">{id ? 'Teknologi yang saya pakai' : 'Tools I work with'}</h2>
           <div className="mt-9 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
             {SKILLS.map((skill) => (
               <div key={skill.name} className="group flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 transition hover:-translate-y-1 hover:border-indigo-300 hover:bg-white hover:shadow-lg">
@@ -49,7 +50,7 @@ export function AboutSection() {
               </div>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
